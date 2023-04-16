@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reto-appgate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reto-appgate
+  template:
+    metadata:
+      labels:
+        app: reto-appgate
+    spec:
+      containers:
+      - name: reto-appgate
+        image: maupuert/reto-appgate
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        startupProbe:
+          httpGet:
+            path: /
+            port: 8000  
+          failureThreshold: 30
+          periodSeconds: 10  
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8000
