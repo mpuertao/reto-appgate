@@ -147,22 +147,23 @@ Nos piden:
 - Estructura del repositorio:
   
 ```
-├── Readme.md
+├── Dockerfile
+├── README.md
 ├── __pycache__
 │   └── main.cpython-39.pyc
-├── app
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   ├── haproxy.cfg
-│   ├── main.py
-│   └── requirements.txt
+├── docker-compose.yml
+├── haproxy.cfg
 ├── images
-│   └── otel.png
-├── justificacion.md
+│   ├── alerting-slack.png
+│   ├── dashboard-k8s.png
+│   ├── diagrama-punto1.png
+│   ├── otel.png
+│   └── reto-appgate.png
 ├── k8s
 │   ├── Deployment.yml
 │   ├── Hpa.yml
 │   └── Service.yml
+├── main.py
 ├── monitoring
 │   ├── alertmanager
 │   │   ├── configmap-alertamanager.yml
@@ -184,11 +185,12 @@ Nos piden:
 │       ├── config-map.yml
 │       ├── deployment.yml
 │       └── service.yml
+├── requirements.txt
 └── reto-tecnico.pdf
 ```
 
 
-- El código fuente (hello world en flask) y Dockerfile están en la carpeta `app`. Si se requiere construir la imagen docker se debe hacer desde esta carpeta para que no se copien los demás arcnivo innecesarios para ese momento. La aplicación expone su entrypoint en http://localhost:8000.
+- El código fuente (hello world en flask) y Dockerfile están en la raiz del repo. La aplicación expone su entrypoint en http://localhost:8000.
 
 - En la carpeta `k8s` se encuentran los manifiestos necesarios para la aplicacion en kubernetes. El deployment, service y hpa. Al interior del deployment están los probes necesarios.
   la imagen docker está publicada en dockerhub: maupuert/reto-appgate:latest
