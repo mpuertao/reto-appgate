@@ -225,7 +225,14 @@ El módulo de `alertmanager` está notificando una de las alertas configuradas e
 
 </center>
 
-- Como valor agregado, se adiciona un github actions (pipeline) para publicar la imagen en Dockerhub automáticamente cada que se modifica el .py o el Dockerfile en la rama principal `main`.
+-----
+
+<br>
+<br>
+
+  Como valor agregado, se adiciona un github actions (pipeline) para publicar la imagen en Dockerhub automáticamente cada que se modifica el .py o el Dockerfile en la rama principal `main`.
+
+[github actions reto appgate](https://github.com/mpuertao/reto-appgate/actions)
 
 
 
