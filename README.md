@@ -41,7 +41,7 @@ Para que las aplicaciones autoescalen, se requiere que el contenedor muera o rep
 
 En el ejercicio propuesto, usa 'CMD ["/bin/docker-entrypoint"]' lo que hace es pasar a ejecutar un shell en un proceso PID2, por lo cual, cuando la aplicación presenta alguna intermitencia o caída (desbordamiento de memoria tambien aplica en este escenario), docker no se da cuenta, por ende no termina el contenedor. Esto cuando estamos sobre alguna gestión de autoescalamiento (preferiblemente k8s) significa que la aplicación experimentará downtime y el Deployment y los HPA no gestionarán las replicas (replicaSet). 
 
-La solución propuesta sería usar el CMD o ENTRYPOINT en el Dockerfile y ejecutar los comandos directamente allí, ejemplo: `CMD ["gunicorn", "main:app", "-w", "4", "-b", "0.0.0.0:8000"]`.
+Se recomienda usar el CMD o ENTRYPOINT en el Dockerfile y ejecutar los comandos directamente allí, ejemplo: `CMD ["gunicorn", "main:app", "-w", "4", "-b", "0.0.0.0:8000"]`.
 
 <br>
 <br>
@@ -211,4 +211,17 @@ Adicional, esta implementación genera un dashboard que se expone con '`minikube
 <br>
 
 En la carpeta `images` se encuentran los diagramas a alto nivel.
+
+
+El módulo de `alertmanager` está notificando una de las alertas configuradas en Slack (posible desborde de memoria del pod):
+
+<br>
+
+<center>
+
+[alerting-slack](images/alerting-slack.png)
+
+</center>
+
+
 
