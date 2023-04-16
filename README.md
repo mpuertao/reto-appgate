@@ -219,7 +219,7 @@ El módulo de `alertmanager` está notificando una de las alertas configuradas e
 
 <center>
 
-[alerting-slack](images/alerting-slack.png)
+![alerting-slack](images/alerting-slack.png)
 
 </center>
 
