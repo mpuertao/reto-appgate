@@ -196,7 +196,7 @@ Nos piden:
 - En la carpeta monitoring se encuentra 4 subcarpetas:
 
   - prometheus: Para recolectar las métricas.
-  - kube state metrics: Para pasarle datos adicionales del cluster prometheus y al visualizador.
+  - kube state metrics: Para pasarle datos adicionales del cluster a prometheus y al visualizador.
   - grafana: front para visualizar los dashboard con sus metricas.
   - alertmanager: Módulo para generar alertas.
 
